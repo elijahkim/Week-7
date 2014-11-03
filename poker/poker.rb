@@ -13,8 +13,9 @@ class Poker
     @deck.new_cards
     @deck.cards.shuffle!
     deal(@player1)
+    deal(@player2)
+
     puts @player1.hand
-    puts @deck.cards.count
   end
 
   def deal(player)
@@ -22,6 +23,10 @@ class Poker
       player.hand << @deck.cards[time]
       @deck.cards.delete_at(time)
     end
+  end
+
+  def check_hand
+
   end
 end
 

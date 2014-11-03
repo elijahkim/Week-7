@@ -11,7 +11,7 @@ class Cards
 
     numbers.each do |number|
       suits.each do|suit|
-        @cards << "#{number}#{suit}" 
+        @cards << {rank: number, suit: suit}
       end
     end
   end
@@ -19,6 +19,7 @@ class Cards
   def show_cards
     puts @cards
   end
+
 
 end
 
