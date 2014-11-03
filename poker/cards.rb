@@ -1,8 +1,4 @@
 class Cards
-  def initialize
-
-  end
-
   def new_cards
     numbers = ["A","1","2","3","4","5","6","7","8","9","T","J","Q","K"]
     suits = ["C","S","H","D"]
@@ -22,11 +18,5 @@ class Cards
   def shuffle
     @cards.shuffle!
   end
-
 end
 
-cards = Cards.new
-cards.new_cards
-cards.show_cards
-cards.shuffle
-cards.show_cards
