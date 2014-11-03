@@ -17,6 +17,8 @@ class Poker
     deal(@player2)
     @deck.show_cards
 
+    @player1.show
+
    # check_values(@player1)
   end
 
