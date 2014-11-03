@@ -1,4 +1,5 @@
 require './cards'
+require './player'
 
 class Poker
   def initialize
