@@ -1,5 +1,6 @@
-require './cards'
+require './card'
 require './player'
+require './deck'
 
 class Poker
 
@@ -9,13 +10,14 @@ class Poker
   end
 
   def game
-    @deck = Cards.new
-    @deck.new_cards
+    @deck = Deck.new
+    @deck.generate_cards
     @deck.cards.shuffle!
     deal(@player1)
     deal(@player2)
+    @deck.show_cards
 
-    puts @player1.hand
+   # check_values(@player1)
   end
 
   def deal(player)
@@ -27,6 +29,10 @@ class Poker
 
   def check_hand
 
+  end
+
+  def check_values(player)
+   # puts player.hand.sort_by{|card| card[:rank]}
   end
 end
 
