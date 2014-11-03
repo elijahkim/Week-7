@@ -1,6 +1,11 @@
 class Cards
+  attr_accessor :cards
+
+  def initalize
+    @cards = []
+  end
   def new_cards
-    numbers = ["A","1","2","3","4","5","6","7","8","9","T","J","Q","K"]
+    numbers = ["A","2","3","4","5","6","7","8","9","T","J","Q","K"]
     suits = ["C","S","H","D"]
     @cards = []
 
@@ -15,8 +20,5 @@ class Cards
     puts @cards
   end
 
-  def shuffle
-    @cards.shuffle!
-  end
 end
 
