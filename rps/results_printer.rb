@@ -1,5 +1,5 @@
 class ResultsPrinter
-  def initialize()
+  def initialize(move, results)
 
   end
 end
