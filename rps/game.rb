@@ -9,18 +9,13 @@ class Game
     move = Move.new
     move.player_move = get_response
     move.computer_move = Computer.new.give_response
-    puts move.player_move
-    puts move.computer_move
-    ResultsChecker.new.compare_response(move)
+    results = ResultsChecker.new.compare_response(move)
+    ResultsPrinter.new.print_results(move, results)
   end
 
   def get_response
     print "Your move? (R/P/S, q to quit) > "
     gets.chomp.capitalize
-  end
-
-  def computer_response
-    AVAILABLE_MOVES[rand(0..2)]
   end
 end
 
