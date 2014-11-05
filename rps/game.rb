@@ -10,7 +10,11 @@ class Game
     move.player_move = get_response
     move.computer_move = Computer.new.give_response
     results = ResultsChecker.new.compare_response(move)
-    ResultsPrinter.new.print_results(move, results)
+    score_keeper = ScoreKeeper.new
+    score_keeper.keep_score(results)
+    score = score_keeper.score
+    puts score.inspect
+    ResultsPrinter.new.print_results(move, results, score)
   end
 
   def get_response
