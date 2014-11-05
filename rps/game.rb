@@ -8,7 +8,7 @@ class Game
   def play
     move = Move.new
     move.player_move = get_response
-    move.computer_move = computer_response
+    move.computer_move = Computer.new.give_response
     puts move.player_move
     puts move.computer_move
     ResultsChecker.new.compare_response(move)
