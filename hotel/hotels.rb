@@ -21,11 +21,4 @@ Location: #{city}
 Number of Rooms: #{number_of_rooms}
     HOTEL
   end
-
-  private
-
-  def format_number(data)
-    number = clean(data)
-    "(#{number[0..2]}) #{number[3..5]}-#{number[6..9]}"
-  end
 end
