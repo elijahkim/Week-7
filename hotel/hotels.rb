@@ -1,22 +1,35 @@
 class Hotel
-  attr_accessor :hotel, :city, :phone_number, :number_of_singles, :number_of_doubles
+  attr_reader :name, :city, :phone_number, :number_of_singles, :number_of_doubles
+
   def initialize(data)
-    @hotel = data["Hotel"]
+    @name = data["Hotel"].strip
     @city = data["City"]
-    @phone_number = data["Phone Number"]
-    @number_of_singles = data["Number of Singles"]
-    @number_of_doubles = data["Number of Doubles"]
+    @phone_number = format_number(data["Phone Number"])
+    @number_of_singles = clean(data["Number of Singles"]).to_i
+    @number_of_doubles = clean(data["Number of Doubles"]).to_i
   end
 
-  def attributes
-    [:hotel, :city, :phone_number, :number_of_singles, :number_of_doubles]
+  def number_of_rooms
+    number_of_singles + number_of_doubles
   end
 
   def to_s
-    puts
-    puts "Phone Number: #{self.phone_number}"
-    puts "Location: #{self.city}"
-    puts "Number of Rooms: #{self.number_of_singles + self.number_of_doubles}"
-    puts
+    <<-HOTEL
+
+Phone Number: #{phone_number}
+Location: #{city}
+Number of Rooms: #{number_of_rooms}
+    HOTEL
+  end
+
+  private
+
+  def clean(data)
+    data.gsub(/[\D]+/, "")
+  end
+
+  def format_number(data)
+    number = clean(data)
+    "(#{number[0..2]}) #{number[3..5]}-#{number[6..9]}"
   end
 end

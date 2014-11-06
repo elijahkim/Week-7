@@ -1,9 +1,14 @@
 require "csv"
 require "./hotels"
 require "./hotel_converter"
+require "./null_hotel"
 
 hotels = []
 hotels = HotelConverter.new("hotels.csv").convert
-hotels.each do |hotel|
-  hotel.to_s
-end
+
+print "What Property? > "
+query = gets.chomp
+
+selected_hotel = hotels.find{|h| h.name == query} || NullHotel.new
+puts selected_hotel
+
