@@ -2,6 +2,7 @@ require "csv"
 require "./hotels"
 require "./hotel_converter"
 require "./null_hotel"
+require "./formatter"
 
 hotels = []
 hotels = HotelConverter.new("hotels.csv").convert
