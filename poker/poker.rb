@@ -3,7 +3,6 @@ require './player'
 require './deck'
 
 class Poker
-
   def initialize(players)
     @player1 = players[0]
     @player2 = players[1]
@@ -15,31 +14,18 @@ class Poker
     @deck.cards.shuffle!
     deal(@player1)
     deal(@player2)
-    @deck.show_cards
-
     @player1.show
-
-   # check_values(@player1)
   end
 
   def deal(player)
-    5.times do |time|
-      player.hand << @deck.cards[time]
-      @deck.cards.delete_at(time)
+    5.times do
+      player.hand << @deck.cards.pop
     end
-  end
-
-  def check_hand
-
-  end
-
-  def check_values(player)
-   # puts player.hand.sort_by{|card| card[:rank]}
   end
 end
 
-player1 = Player.new("eli")
-player2 = Player.new("jah")
+player1 = Player.new("player1")
+player2 = Player.new("player2")
 
 game = Poker.new([player1, player2])
 game.game
